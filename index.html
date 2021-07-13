@@ -1,0 +1,1897 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blanchard</title>
+  <link rel="stylesheet" href="./CSS/normalize.css">
+  <link rel="stylesheet" href="./CSS/choices.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://unpkg.com/simplebar@latest/dist/simplebar.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.css" />
+  <link rel="stylesheet" href="./CSS/style.css">
+  <link rel="shortcut icon" href="./img/icons/favicon.ico" type="image/x-icon">
+
+  <script defer src="./JS/focus-visible.js"></script>
+  <script defer src="https://unpkg.com/simplebar@latest/dist/simplebar.min.js"></script>
+  <script defer src="./JS/choices.min.js"></script>
+  <script defer src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+  <script defer src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+  <script defer src="./JS/jquery.maskMoney.js"></script>
+  <script defer src="https://unpkg.com/@popperjs/core@2"></script>
+  <script defer src="https://unpkg.com/tippy.js@6"></script>
+  <script defer src="./JS/jquery.inputmask.js"></script>
+  <script defer src="./JS/just-validate.min.js"></script>
+  <script defer src="https://api-maps.yandex.ru/2.1/?apikey=2fd4566f-c43a-49d7-9f83-3b80126ed194&lang=ru_RU"></script>
+  <script defer src="./JS/index.js"></script>
+</head>
+
+<body>
+  <header class="header">
+    <div class="container header__container">
+      <button tabindex="-1" class="btn header__burger burger">
+        <img src="./img/icons/burger.png" alt="меню" class="burger__image">
+      </button>
+      <a href="index.html" class="links header__home">
+        <img src="./img/icons/logo.svg" alt="домашняя страница" class="header__img">
+      </a>
+      <button tabindex="-1" type="submit" class="btn header__search mobsearch">
+      </button>
+      <form action="http://google.com/search" target="_blank" method="POST" class="header__form searchform">
+        <button tabindex="-1" type="submit" class="btn searchform__btn">
+          <img src="./img/icons/search-mobile.svg" alt="поиск" class="mobsearch__img">
+        </button>
+        <input tabindex="-1" name="q" type="search" class="inpt searchform__input">
+        <input tabindex="-1" type="hidden" name="as_sitesearch" value="">
+      </form>
+      <nav class="nav header__nav pnav">
+        <button tabindex="-1" class="btn mobmenu__close close">
+          <img src="./img/icons/x.png" alt="закрыть меню" class="close__image">
+        </button>
+        <ul class="list pnav__list">
+          <li class="pnav__item">
+            <a href="#about" class="links pnav__link">О нас</a>
+          </li>
+          <li class="pnav__item">
+            <a href="#gallery" class="links pnav__link">Галерея</a>
+          </li>
+          <li class="pnav__item">
+            <a href="#catalog" class="links pnav__link">Каталог</a>
+          </li>
+          <li class="pnav__item">
+            <a href="#events" class="links pnav__link">События</a>
+          </li>
+          <li class="pnav__item">
+            <a href="#books" class="links pnav__link">Издания</a>
+          </li>
+          <li class="pnav__item">
+            <a href="#projects" class="links pnav__link">Проекты</a>
+          </li>
+          <li class="pnav__item">
+            <a href="#contacts" class="links pnav__link">Контакты</a>
+          </li>
+        </ul>
+        <button tabindex="-1" id="mobauth" class="btn mob__auth mobauth">
+          <svg class="mobauth__icon iconmobauth" width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path class="iconmobauth__path" d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" fill="white"/>
+          </svg>
+          Войти
+        </button>
+      </nav>
+      <button id="auth" class="btn header__auth auth">
+        <svg class="auth__icon iconauth" width="13" height="13" viewbox="0 0 13 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path class="iconauth__path" d="M5.12056 9.09278L6.13889 10.1111L9.75 6.5L6.13889 2.88889L5.12056 3.90722L6.98389 5.77778H0V7.22222H6.98389L5.12056 9.09278ZM11.5556 0H1.44444C0.642778 0 0 0.65 0 1.44444V4.33333H1.44444V1.44444H11.5556V11.5556H1.44444V8.66667H0V11.5556C0 12.35 0.642778 13 1.44444 13H11.5556C12.35 13 13 12.35 13 11.5556V1.44444C13 0.65 12.35 0 11.5556 0Z" fill="white"/>
+        </svg>
+        Войти
+      </button>
+    </div>
+    <div class="container menu__container">
+      <div class="header__menu menu">
+        <ul class="list menu__list">
+          <li class="menu__item">
+            <button class="btn js-focus-visible menu__button" data-path="realism">
+              Реализм
+            </button>
+            <div class="menu__dropdown dropdown" data-target="realism">
+              <div id="myElement" class="dropdown__list">
+                <div class="dropdown__part">
+                  <picture>
+                    <source srcset="./img/header/realism/tintoretto-pict@2x.webp 2x">
+                    <img src="./img/header/realism/tintoretto-pict.webp" alt="" class="dropdown__backgr">
+                  </picture>
+                  <a href="#" class="links dropdown__link">
+                    Тинторетто
+                  </a>
+                </div>
+                <div class="dropdown__part">
+                  <picture>
+                    <source srcset="./img/header/realism/friedrich-pict@2x.webp 2x">
+                    <img src="./img/header/realism/friedrich-pict.webp" alt="" class="dropdown__backgr">
+                  </picture>
+                  <a href="#" class="links dropdown__link">
+                    Фридрих
+                  </a>
+                </div>
+                <div class="dropdown__part">
+                  <picture>
+                    <source srcset="./img/header/realism/leonardo-pict@2x.webp 2x">
+                    <img src="./img/header/realism/leonardo-pict.webp" alt="" class="dropdown__backgr">
+                  </picture>
+                  <a href="#" class="links dropdown__link">
+                    Леонардо
+                  </a>
+                </div>
+                <div class="dropdown__part">
+                  <picture>
+                    <source srcset="./img/header/realism/verrocchio-pict@2x.webp 2x">
+                    <img src="./img/header/realism/verrocchio-pict.webp" alt="" class="dropdown__backgr">
+                  </picture>
+                  <a href="#" class="links dropdown__link">
+                    Верроккьо
+                  </a>
+                </div>
+                <div class="dropdown__part">
+                  <picture>
+                    <source srcset="./img/header/realism/verrocchio-pict@2x.webp 2x">
+                    <img src="./img/header/realism/verrocchio-pict.webp" alt="" class="dropdown__backgr">
+                  </picture>
+                  <a href="#" class="links dropdown__link">
+                    Верроккьо
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="menu__item">
+            <button class="btn js-focus-visible menu__button" data-path="impress">
+              Импрессионизм
+            </button>
+            <div class="menu__dropdown dropdown" data-target="impress">
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/impress/monet-pict@2x.webp 2x">
+                  <img src="./img/header/impress/monet-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Моне
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/impress/sisley-pict@2x.webp 2x">
+                  <img src="./img/header/impress/sisley-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Сислей
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/impress/manet-pict@2x.webp 2x">
+                  <img src="./img/header/impress/manet-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Мане
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/impress/renoir-pict@2x.webp 2x">
+                  <img src="./img/header/impress/renoir-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Ренуар
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="menu__item">
+            <button class="btn js-focus-visible menu__button" data-path="postimpress">
+              Постимпрессионизм
+            </button>
+            <div class="menu__dropdown dropdown" data-target="postimpress">
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/postimpress/van-gogh-pict@2x.webp 2x">
+                  <img src="./img/header/postimpress/van-gogh-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Ван Гог
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/postimpress/cezanne-pict@2x.webp 2x">
+                  <img src="./img/header/postimpress/cezanne-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Сезанн
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/postimpress/gauguin-pict@2x.webp 2x">
+                  <img src="./img/header/postimpress/gauguin-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Гоген
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/postimpress/seurat-pict@2x.webp 2x">
+                  <img src="./img/header/postimpress/seurat-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Сёра
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="menu__item">
+            <button class="btn js-focus-visible menu__button" data-path="avangard">
+              Авангард
+            </button>
+            <div class="menu__dropdown dropdown" data-target="avangard">
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/avangard/kandinskii-pict@2x.webp 2x">
+                  <img src="./img/header/avangard/kandinskii-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Кандинский
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/avangard/marinetti-pict@2x.webp 2x">
+                  <img src="./img/header/avangard/marinetti-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Маринетти
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/avangard/malevich-pict@2x.webp 2x">
+                  <img src="./img/header/avangard/malevich-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Малевич
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/avangard/picasso-pict@2x.webp 2x">
+                  <img src="./img/header/avangard/picasso-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Пикассо
+                </a>
+              </div>
+            </div>
+          </li>
+          <li class="menu__item">
+            <button class="btn js-focus-visible menu__button" data-path="futurism">
+              Футуризм
+            </button>
+            <div class="menu__dropdown dropdown" data-target="futurism">
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/futurism/carra-pict@2x.webp 2x">
+                  <img src="./img/header/futurism/carra-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Карра
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/futurism/pratella-pict@2x.webp 2x">
+                  <img src="./img/header/futurism/pratella-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Прателла
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/futurism/severini-pict@2x.webp 2x">
+                  <img src="./img/header/futurism/severini-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Северини
+                </a>
+              </div>
+              <div class="dropdown__part">
+                <picture>
+                  <source srcset="./img/header/futurism/balla-pict@2x.webp 2x">
+                  <img src="./img/header/futurism/balla-pict.webp" alt="" class="dropdown__backgr">
+                </picture>
+                <a href="#" class="links dropdown__link">
+                  Балла
+                </a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <form action="http://google.com/search" target="_blank" method="POST"  class="menu__form search">
+          <input type="search" name="q" class="inpt js-focus-visible search__input" placeholder="Поиск по сайту">
+          <input type="hidden" name="as_sitesearch" value="">
+          <button type="submit" class="btn search__btn">
+            <svg class="search__icon" width="23" height="22" viewbox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect class="search__rect" width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)" fill="white"/>
+              <path class="search__path" fill-rule="evenodd" clip-rule="evenodd" d="M12.0969 18C7.53041 18 3.99692 14.3229 3.99692 10C3.99692 5.67715 7.53041 2 12.0969 2C16.6634 2 20.1969 5.67715 20.1969 10C20.1969 14.3229 16.6634 18 12.0969 18ZM12.0969 20C6.57408 20 2.09692 15.5228 2.09692 10C2.09692 4.47715 6.57408 0 12.0969 0C17.6198 0 22.0969 4.47715 22.0969 10C22.0969 15.5228 17.6198 20 12.0969 20Z" fill="white"/>
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero__swiper swiper-container">
+        <div class="hero__wrapper swiper-wrapper">
+          <picture class="animate__animated swiper-slide hero__bckgr">
+            <source srcset="./img/hero/1st-slide320.webp" media="(max-width: 320px)">
+            <source srcset="./img/hero/1st-slide768.webp" media="(max-width: 768px)">
+            <source srcset="./img/hero/1st-slide1024.webp" media="(max-width: 1024px)">
+            <source srcset="./img/hero/1st-slide1920@2x.webp 2x" class="hero__image">
+            <img src="./img/hero/1st-slide1920.webp" alt="" class="hero__image">
+          </picture>
+          <picture class="animate__animated swiper-slide hero__bckgr">
+            <source srcset="./img/hero/2nd-slide320.webp" media="(max-width: 320px)">
+            <source srcset="./img/hero/2nd-slide768.webp" media="(max-width: 768px)">
+            <source srcset="./img/hero/2nd-slide1024.webp" media="(max-width: 1024px)">
+            <source srcset="./img/hero/2nd-slide1920@2x.webp 2x" class="hero__image">
+            <img src="./img/hero/2nd-slide1920.webp" alt="" class="hero__image">
+          </picture>
+          <picture class="animate__animated swiper-slide hero__bckgr">
+            <source srcset="./img/hero/3rd-slide320.webp" media="(max-width: 320px)">
+            <source srcset="./img/hero/3rd-slide768.webp" media="(max-width: 768px)">
+            <source srcset="./img/hero/3rd-slide1024.webp" media="(max-width: 1024px)">
+            <source srcset="./img/hero/3rd-slide1920@2x.webp 2x" class="hero__image">
+            <img src="./img/hero/3rd-slide1920.webp" alt="" class="hero__image">
+          </picture>
+        </div>
+      </div>
+      <div class="container hero__container">
+        <h2 class="heading2 hero__heading">
+          Прикоснитесь к&nbsp;прекрасному
+        </h2>
+        <p class="hero__text">
+          Мы вынуждены отталкиваться от того, что реализация намеченных плановых заданий создаёт предпосылки для новых предложений.
+        </p>
+        <a href="#" class="links hero__btn">
+          Подписаться на рассылку
+        </a>
+      </div>
+    </section>
+    <section id="about" class="about">
+      <div class="container about__container">
+        <h2 class="heading2 about__heading">
+          О нас
+        </h2>
+        <p class="paragraph about__text">
+          Ясность нашей позиции очевидна: семантический разбор внешних противодействий однозначно определяет каждого участника как способного принимать собственные решения касаемо распределения внутренних резервов и ресурсов. Не следует, однако, забывать, что высококачественный прототип будущего проекта влечет за собой процесс внедрения и модернизации модели развития. Повседневная практика показывает, что высокое качество позиционных исследований создаёт необходимость включения в производственный план целого ряда внеочередных мероприятий с учётом комплекса распределения внутренних резервов и ресурсов. В рамках спецификации современных стандартов, действия представителей оппозиции набирают популярность среди определенных слоев населения, а значит, должны быть разоблачены.
+        </p>
+      </div>
+    </section>
+    <section id="gallery" class="gallery">
+      <div class="container gallery__container">
+        <div class="gallery__filter filter">
+          <h2 class="heading2 filter__heading">
+            Галерея
+          </h2>
+          <p class="filter__text">
+            Фильтровать по:
+          </p>
+          <select name="select" class="filter__select">
+            <option value="">Автор</option>
+            <option value="">Направление</option>
+            <option value="">Техника</option>
+          </select>
+        </div>
+        <div class="gallery__flex swiper__flex">
+          <div class="swiper-container gallery__swiper swiper">
+            <div class="swiper__pages">
+              <div class="swiper-button-prev swiper__btnprev"></div>
+              <div class="swiper-pagination swiper__pagination"></div>
+              <div class="swiper-button-next swiper__btnnext"></div>
+            </div>
+            <ul class="list swiper-wrapper swiper__list">
+              <li class="swiper-slide swiper__item">
+                <div id="picture1" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/1.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture1" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/1mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/1.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture2" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/2.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture2" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/2mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/2.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture3" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/3.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Казимир Малевич
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "Женщина с граблями"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1931-1932
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Картина из второй серии крестьянского цикла работ Казимира Малевича. Художник принялся за её создание в 1930-1931 годах, после того, как первый цикл был утерян после Берлинской и Варшавской выставок в 1927 году.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture3" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/3mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/3.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture4" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/4.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture4" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/4mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/4.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture5" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/5.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture5" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/5mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/5.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture6" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/6.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture6" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/6mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/6.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture7" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/7.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture7" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/7mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/7.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture8" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/8.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture8" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/8mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/8.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture9" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/9.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture9" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/9mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/9.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture10" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/10.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture10" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/10mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/10.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture11" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/11.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture1" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/11mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/11.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture12" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/12.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture12" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/12mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/12.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture13" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/13.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture13" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/13mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/13.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture14" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/14.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture14" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/14mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/14.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture15" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/15.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture15" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/15mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/15.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture16" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/16.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture16" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/16mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/16.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture17" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/17.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture17" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/17mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/17.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+              <li class="swiper-slide swiper__item">
+                <div id="picture18" class="modal swiper__modal">
+                  <div class="modal__wrapper">
+                    <div class="modal__picture">
+                      <img src="./img/gallery/pictures/1920/18.webp" alt="ХЗ, название картины" class="modal__image">
+                    </div>
+                    <div class="modal__description mdescription">
+                      <p class="paragraph mdescription__author">
+                        Вася Ложкин
+                      </p>
+                      <p class="paragraph mdescription__naming">
+                        "ХЗ как называется"
+                      </p>
+                      <p class="paragraph mdescription__date">
+                        1900
+                      </p>
+                      <p class="paragraph mdescription__text">
+                        Супер-пупер картина за смешные денежки!
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <a tabindex="-1" href="#picture18" rel="modal:open" class="links swiper__link">
+                  <picture class="swiper__content">
+                    <source srcset="./img/gallery/pictures/320/18mobile.webp" media="(max-width: 475px)">
+                    <img src="./img/gallery/pictures/1920/18.webp" alt="ХЗ, название картины" class="swiper__content">
+                  </picture>
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="gallery__notice notice">
+          <p class="paragraph notice__text">
+            Вам предоставляется 10 бесплатных скачиваний. Для увеличения количества скачиваний <a href="#auth" class="links notice__link">авторизуйтесь</a>, либо воспользуйтесь лицензией.
+          </p>
+        </div>
+      </div>
+    </section>
+    <section id="catalog" class="catalog">
+      <div class="container catalog__container">
+        <div id="tabs" class="catalog__tabs tabs">
+          <div class="tabs__container">
+            <h2 class="heading2 catalog__heading">
+              Каталог
+            </h2>
+            <ul class="list tabs__list">
+              <li class="tabs__item">
+                <button aria-label="каталог художников Франции" class="btn js-focus-visible tabs__btn tabs__btn_active france" data-path="france"></button>
+              </li>
+              <li class="tabs__item">
+                <button aria-label="каталог художников Германии" class="btn js-focus-visible tabs__btn germany" data-path="germany"></button>
+              </li>
+              <li class="tabs__item">
+                <button aria-label="каталог художников Италии" class="btn js-focus-visible tabs__btn italy" data-path="italy"></button>
+              </li>
+              <li class="tabs__item">
+                <button aria-label="каталог художников России" class="btn js-focus-visible tabs__btn russia" data-path="russia"></button>
+              </li>
+              <li class="tabs__item">
+                <button aria-label="каталог художников Бельгии Фламандии" class="btn js-focus-visible tabs__btn belgium" data-path="belgium"></button>
+              </li>
+            </ul>
+          </div>
+          <div id="tabs-1" class="tabs__content tabs__content_active" data-target="france">
+            <p class="paragraph tabs__para">
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
+            </p>
+            <div class="tabs__accordion accord">
+              <div id="accordion" class="accord__container">
+                <button aria-label="французские художники 15-го века" class="btn js-focus-visible accord__date accord__date_active" data-path="fr-1400">
+                  C 1400 по 1499 гг.
+                </button>
+                <ul class="list first__list accord__list" data-target="fr-1400">
+                  <li class="accord__item">
+                    <button class="btn accord__btn first__btn" data-path="deyck">Бартелеми Д'Эйк</button>
+                  </li>
+                </ul>
+                <button aria-label="французские художники 16-го века" class="btn js-focus-visible accord__date" data-path="fr-1500">
+                  C 1500 по 1599 гг.
+                </button>
+                <ul class="list accord__list" data-target="fr-1500">
+                </ul>
+                <button aria-label="французские художники 17-го века" class="btn js-focus-visible accord__date" data-path="fr-1600">
+                  C 1600 по 1699 гг.
+                </button>
+                <ul class="list accord__list" data-target="fr-1600">
+                </ul>
+                <button aria-label="французские художники 18-го века" class="btn js-focus-visible accord__date" data-path="fr-1700">
+                  C 1700 по 1799 гг.
+                </button>
+                <ul class="list accord__list" data-target="fr-1700">
+                </ul>
+                <button aria-label="французские художники 19-го века" class="btn js-focus-visible accord__date" data-path="fr-1800">
+                  C 1800 по 1899 гг.
+                </button>
+                <ul class="list accord__list" data-target="fr-1800">
+                </ul>
+                <button aria-label="французские художники 20-го века" class="btn js-focus-visible accord__date" data-path="fr-1900">
+                  C 1900 по 1999 гг.
+                </button>
+                <ul class="list accord__list" data-target="fr-1900">
+                </ul>
+                <button aria-label="французские художники 21-го века" class="btn js-focus-visible accord__date" data-path="fr-2000">
+                  C 2000г.
+                </button>
+                <ul class="list accord__list" data-target="fr-2000">
+                </ul>
+              </div>
+              <div class="accord__description">
+                <div id="deyck" class="accord__card first__card card" data-target="deyck">
+                  <picture class="card__picture">
+                    <img src="./img/catalog/painters/deyck.webp" alt="Бартелеми Д'Эйк" class="card__image">
+                  </picture>
+                  <h3 class="heading3 card__heading">
+                    Бартелеми Д'Эйк
+                  </h3>
+                  <span class="card__date">
+                    1420 — 1470
+                  </span>
+                  <p class="paragraph card__descript">
+                    Имя Бартелеми д’Эйка давно известно по историческим документам. Он был придворным художником короля Рене Доброго, имел высокую репутацию как выдающийся мастер, — об этом свидетельствуют отзывы современников. Однако конкретной информации о нём немного.Исследователи считают, что Бартелеми имеет нидерландское происхождение, а обучение прошёл в мастерской Яна Ван Эйка, где, вероятно, контактировал с Робером Кампеном.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tabs-2" class="tabs__content" data-target="germany">
+            <p class="paragraph tabs__para">
+              Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Злых послушавшись дорогу силуэт запятых маленький свою даже продолжил приставка образ города живет вдали подзаголовок, великий, если грамматики сих что.
+            </p>
+            <div class="tabs__accordion accord">
+              <div class="accord__container">
+                <button aria-label="немецкие художники 15-го века" class="btn js-focus-visible accord__date accord__date_active" data-path="ge-1400">
+                  C 1400 по 1499 гг.
+                </button>
+                <ul class="list first__list accord__list" data-target="ge-1400">
+                  <li class="accord__item">
+                    <button class="btn accord__btn first__btn" data-path="burgkmair">Ханс Бургкмайр</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="accord__description">
+                <div id="burgkmair" class="accord__card first__card card" data-target="burgkmair">
+                  <picture class="card__picture">
+                    <img src="./img/catalog/painters/burgkmair.webp" alt="Ханс Бургкмайр" class="card__image">
+                  </picture>
+                  <h3 class="heading3 card__heading">
+                    Ханс Бургкмайр
+                  </h3>
+                  <span class="card__date">
+                    1473 — 1531.
+                  </span>
+                  <p class="paragraph card__descript">
+                    Немецкий живописец и график эпохи Возрождения, глава аугсбургской школы. Ученик М. Шонгауэра; испытал влияние северо-итальянского искусства. В его лучших работах (алтарь Иоанна, 1518, алтарь с "Распятием", 1519, — оба в Старой пинакотеке, Мюнхен) пространственная свобода композиции органично сочетается с экспрессией чувств и движений. Б. — один из пионеров цветной гравюры на дереве.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tabs-3" class="tabs__content" data-target="italy">
+            <p class="paragraph tabs__para">
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
+            </p>
+            <div class="tabs__accordion accord">
+              <div class="accord__container">
+                <button aria-label="итальянские художники 15-го века" class="btn js-focus-visible accord__date accord__date_active" data-path="it-1400">
+                  C 1400 по 1499 гг.
+                </button>
+                <ul class="list first__list accord__list" data-target="it-1400">
+                  <li class="accord__item">
+                    <button class="btn accord__btn first__btn" data-path="bindo">Бенедетто ди Биндо</button>
+                  </li>
+                  <li class="accord__item">
+                    <button class="btn accord__btn" data-path="ghirlandaio">Доменико Гирландайо</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="accord__description">
+                <div id="bindo" class="accord__card first__card card" data-target="bindo">
+                  <picture class="card__picture">
+                    <source srcset="./img/catalog/painters/bindo@2x.webp 2x">
+                    <img src="./img/catalog/painters/bindo.webp" alt="Бенедетто ди Биндо" class="card__image">
+                  </picture>
+                  <h3 class="heading3 card__heading">
+                    Бенедетто ди Биндо
+                  </h3>
+                  <span class="card__date">
+                    ок. 1380—85 — 19 сентября 1417.
+                  </span>
+                  <p class="paragraph card__descript">
+                    Бенедетто ди Биндо остался в истории искусства как сиенский художник, так сказать, «второго ряда», несмотря на то, что за свою короткую жизнь он выполнил ряд весьма престижных заказов, включая работы в Сиенском соборе (работы в главном соборе республики второстепенным художникам не поручались).
+                  </p>
+                </div>
+              </div>
+              <div class="accord__description">
+                <div id="ghirlandaio" class="accord__card card" data-target="ghirlandaio">
+                  <picture class="card__picture">
+                    <source srcset="./img/catalog/painters/ghirlandaio@2x.webp 2x">
+                    <img src="./img/catalog/painters/ghirlandaio.webp" alt="Доменико Гирландайо" class="card__image">
+                  </picture>
+                  <h3 class="heading3 card__heading">
+                    Доменико Гирландайо
+                  </h3>
+                  <span class="card__date">
+                    2 июня 1448 — 11 января 1494.
+                  </span>
+                  <p class="paragraph card__descript">
+                    Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо. Глава художественной мастерской, где юный Микеланджело в течение года овладевал профессиональными навыками. Автор фресковых циклов, в которых выпукло, со всевозможными подробностями показана домашняя жизнь библейских персонажей (в их роли выступают знатные граждане Флоренции в костюмах того времени).
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="tabs-4" class="tabs__content" data-target="russia">
+            <p class="paragraph tabs__para">
+              Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Грамматики текста раз если, от всех оксмокс себя возвращайся даже наш предупреждал рекламных, первую, переписали всеми буквоград ты они страна курсивных! Далеко-далеко за словесными горами в стране гласных и согласных живут рыбные тексты. Первую меня, заглавных, пунктуация предложения пустился толку семантика то, продолжил не она ты однажды взобравшись последний пояс наш речью до.
+            </p>
+            <div class="tabs__accordion accord">
+                <div class="accord__container">
+                  <button aria-label="русские художники 15-го века" class="btn accord__date accord__date_active" data-path="ru-1400">
+                    C 1400 по 1499 гг.
+                  </button>
+                  <ul class="list first__list accord__list" data-target="ru-1400">
+                    <li class="accord__item">
+                      <button class="btn accord__btn first__btn" data-path="dionisiy">Дионисий</button>
+                    </li>
+                  </ul>
+                </div>
+                <div class="accord__description">
+                  <div id="dionisiy" class="accord__card first__card card" data-target="dionisiy">
+                    <picture class="card__picture">
+                      <img src="./img/catalog/painters/dionisiy.webp" alt="Дионисий" class="card__image">
+                    </picture>
+                    <h3 class="heading3 card__heading">
+                      Дионисий
+                    </h3>
+                    <span class="card__date">
+                      1440 — 1503/08 гг.
+                    </span>
+                    <p class="paragraph card__descript">
+                      Ведущий московский иконописец и мастер фресок конца XV — начала XVI веков. Считается продолжателем традиций Андрея Рублёва. Дионисий — первый известный по документам русский иконописец светского сословия.
+                    </p>
+                  </div>
+                </div>
+            </div>
+          </div>
+          <div id="tabs-5" class="tabs__content" data-target="belgium">
+            <p class="paragraph tabs__para">
+              Акционеры крупнейших компаний, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут объявлены нарушающими общечеловеческие нормы этики и морали. Являясь всего лишь частью общей картины, стремящиеся вытеснить традиционное производство, нанотехнологии и по сей день остаются уделом либералов, которые жаждут быть функционально разнесены на независимые элементы.
+            </p>
+            <div class="tabs__accordion accord">
+              <div class="accord__container">
+                <button aria-label="фламандские художники 15-го века" class="btn accord__date accord__date_active" data-path="be-1400">
+                  C 1400 по 1499 гг.
+                </button>
+                <ul class="list first__list accord__list" data-target="be-1400">
+                  <li class="accord__item">
+                    <button class="btn accord__btn first__btn" data-path="eyck">Хуберт ван Эйк</button>
+                  </li>
+                </ul>
+              </div>
+              <div class="accord__description">
+                <div id="eyck" class="accord__card first__card card" data-target="eyck">
+                  <picture class="card__picture">
+                    <img src="./img/catalog/painters/eyck.webp" alt="Хуберт ван Эйк" class="card__image">
+                  </picture>
+                  <h3 class="heading3 card__heading">
+                    Хуберт ван Эйк
+                  </h3>
+                  <span class="card__date">
+                    1370 год — 18 сентября 1426 года.
+                  </span>
+                  <p class="paragraph card__descript">
+                    Южно-нидерландский (фламандский) живописец эпохи Северного Возрождения. Старший брат Яна ван Эйка, которого он обучал живописи. С начала 1420-х годов жил в Генте.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="events" class="events">
+      <div class="container events__container">
+        <h2 class="heading2 events__heading">
+          События
+        </h2>
+        <div class="events__swiper swiper-container" data-mobile="false">
+          <ul class="swiper-wrapper list events__list evlist">
+            <li class="evlist__item swiper-slide">
+              <div class="evlist__card evcard">
+                <picture class="evcard__picture">
+                  <source srcset="./img/events/grave/grave1024.webp" media="(max-width: 1024px)">
+                  <source srcset="./img/events/grave/grave@2x.webp 2x">
+                  <img src="./img/events/grave/grave.webp" alt="Книжная гравюра" class="evcard__image">
+                </picture>
+                <p class="evcard__place">
+                  Музей им. Щусева
+                </p>
+                <p class="evcard__date">
+                  с 20 марта по 30 апреля
+                </p>
+                <div class="evcard__description">
+                  <h3 class="heading3 evcard__heading">
+                    Книжная гравюра в живом восприятии
+                  </h3>
+                  <p class="paragraph evcard__paragraph">
+                    Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.
+                  </p>
+                </div>
+                <a href="#" class="links evcard__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="evlist__item swiper-slide">
+              <div class="evlist__card evcard">
+                <picture class="evcard__picture">
+                  <source srcset="./img/events/discussion/discussion1024.webp" media="(max-width: 1024px)">
+                  <source srcset="./img/events/discussion/discussion@2x.webp 2x">
+                  <img src="./img/events/discussion/discussion.webp" alt="Открытая дискуссия" class="evcard__image">
+                </picture>
+                <p class="evcard__place">
+                  ММОМА
+                </p>
+                <p class="evcard__date">
+                  24 марта 19:00
+                </p>
+                <div class="evcard__description">
+                  <h3 class="heading3 evcard__heading">
+                    «Открытая дискуссия». Дмитрий Петров и Сергей Ильин.
+                  </h3>
+                  <p class="paragraph evcard__paragraph">
+                    Высокий уровень вовлечения представителей целевой аудитории является четким доказательством простого факта.
+                  </p>
+                </div>
+                <a href="#" class="links evcard__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="evlist__item swiper-slide">
+              <div class="evlist__card evcard">
+                <picture class="evcard__picture">
+                  <source srcset="./img/events/formation/formation1024.webp" media="(max-width: 1024px)">
+                  <source srcset="./img/events/formation/formation@2x.webp 2x">
+                  <img src="./img/events/formation/formation.webp" alt="Выставка Формация две тысячи двадцать" class="evcard__image">
+                </picture>
+                <p class="evcard__place">
+                  Еврейский музей
+                </p>
+                <p class="evcard__date">
+                  с 31 марта по 21 апреля
+                </p>
+                <div class="evcard__description">
+                  <h3 class="heading3 evcard__heading">
+                    Выставка «Формация 2020»
+                  </h3>
+                  <p class="paragraph evcard__paragraph">
+                    Идейные соображения высшего порядка, а также современная методология разработки играет важную роль в формировании глубокомысленных рассуждений.
+                  </p>
+                </div>
+                <a href="#" class="links evcard__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="evlist__item swiper-slide evlist__item_hidden">
+              <div class="evlist__card evcard">
+                <picture class="evcard__picture">
+                  <source srcset="./img/events/biennale/biennale1024.webp" media="(max-width: 1024px)">
+                  <source srcset="./img/events/biennale/biennale@2x.webp 2x">
+                  <img src="./img/events/biennale/biennale.webp" alt="двадцать четвертое биеннале" class="evcard__image">
+                </picture>
+                <p class="evcard__place">
+                  Третьяковка на Крымском валу
+                </p>
+                <p class="evcard__date">
+                  с 30 марта по 30 апреля
+                </p>
+                <div class="evcard__description">
+                  <h3 class="heading3 evcard__heading">
+                    XXIV Международная биеннале молодого искусства
+                  </h3>
+                  <p class="paragraph evcard__paragraph">
+                    Внезапно, реплицированные с зарубежных источников, современные исследования.
+                  </p>
+                </div>
+                <a href="#" class="links evcard__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+            <li class="evlist__item swiper-slide evlist__item_hidden">
+              <div class="evlist__card evcard">
+                <picture class="evcard__picture">
+                  <source srcset="./img/events/vinzor/vinzor1024.webp" media="(max-width: 1024px)">
+                  <source srcset="./img/events/vinzor/vinzor@2x.webp 2x">
+                  <img src="./img/events/vinzor/vinzor.webp" alt="Джон Винзор" class="evcard__image">
+                </picture>
+                <p class="evcard__place">
+                  ММАМ
+                </p>
+                <p class="evcard__date">
+                  с 8 апреля по 20 мая
+                </p>
+                <div class="evcard__description">
+                  <h3 class="heading3 evcard__heading">
+                    Джон Винзор. Фотографии из серии «Метафора серебра»
+                  </h3>
+                  <p class="paragraph evcard__paragraph">
+                    Один из ведущих флорентийских художников Кватроченто, основатель художественной династии, которую продолжили его брат Давид и сын Ридольфо.
+                  </p>
+                </div>
+                <a href="#" class="links evcard__link">
+                  Подробнее
+                </a>
+              </div>
+            </li>
+          </ul>
+          <!-- If we need pagination -->
+          <div class="swiper-pagination events__pagination"></div>
+        </div>
+        <div class="events__btncontainer">
+          <button class="btn events__btn">
+            Все события
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="books" class="books">
+      <div class="container books__container">
+        <div class="books__filter bfilter">
+          <h2 class="heading2 books__heading">
+            Издания
+          </h2>
+          <form class="bfilter__checkblock checkblock">
+            <h3 class="heading4 checkblock__heading checkblock__heading_desktop">
+              Категории
+            </h3>
+            <h3 tabindex="0" class="heading4 checkblock__heading checkblock__heading_mobile">
+              Категории
+            </h3>
+            <ul class="list checkblock__list">
+              <li class="checkblock__item chbitem column1">
+                <input id="bestseller" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="bestseller" class="chbitem__description">
+                  Бестселлеры <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem column1">
+                <input id="art" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="art" class="chbitem__description">
+                  Искусство <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem column1">
+                <input id="architect" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="architect" class="chbitem__description">
+                  Архитектура  <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem column1">
+                <input id="design" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="design" class="chbitem__description">
+                  Дизайн <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem column2">
+                <input id="fashion" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="fashion" class="chbitem__description">
+                  Мода <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem column2">
+                <input id="children" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="children" class="chbitem__description">
+                  Детям <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem column2">
+                <input id="fiction" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="fiction" class="chbitem__description">
+                  Художественная литература <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem column2">
+                <input id="journalism" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="journalism" class="chbitem__description">
+                  Публицистика <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem">
+                <input id="guide" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="guide" class="chbitem__description">
+                  Путеводители <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem">
+                <input id="philosophy" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="philosophy" class="chbitem__description">
+                  Философия <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem">
+                <input id="tutorial" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="tutorial" class="chbitem__description">
+                  Учебная литература <span class="chbitem__cross"></span>
+                </label>
+              </li>
+              <li class="checkblock__item chbitem">
+                <input id="magazines" type="checkbox" value="" class="inpt chbitem__chckbox">
+                <label for="magazines" class="chbitem__description">
+                  Журналы и газеты <span class="chbitem__cross"></span>
+                </label>
+              </li>
+            </ul>
+          </form>
+          <div class="bfilter__price">
+            <h4 class="heading4 price__heading">
+              Цена
+            </h4>
+            <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="price__container">
+              <p class="price__text">
+                От
+              </p>
+              <input type="text" class="price__input">
+              <p class="price__text">
+                до
+              </p>
+              <input type="text" class="price__input">
+              <p class="price__text">
+                руб.
+              </p>
+            </form>
+          </div>
+        </div>
+        <div class="swiper-container books__showcase showcase">
+          <div class="showcase__pages">
+            <div class="swiper-button-prev showcase__btnprev"></div>
+            <div class="swiper-pagination showcase__pagination"></div>
+            <div class="swiper-button-next showcase__btnnext"></div>
+          </div>
+          <ul class="swiper-wrapper list showcase__list">
+            <li class="swiper-slide showcase__item showcard">
+              <picture class="showcard__picture">
+                <source srcset="./img/books/colorart/colorart@2x.webp 2x">
+                <img src="./img/books/colorart/colorart.webp" alt="книга искусство цвета" class="showcard__picture">
+              </picture>
+              <div class="showcard__dscr">
+                <div class="showcard__data">
+                  <h4 class="heading4 showcard__name">
+                    Искусство цвета
+                  </h4>
+                  <p class="showcard__author">
+                    Иттен, Иоханнес
+                  </p>
+                </div>
+                <p class="showcard__price">
+                  620 руб
+                </p>
+              </div>
+              <button class="btn showcard__btn">
+                Заказать
+              </button>
+            </li>
+            <li class="swiper-slide showcase__item showcard">
+              <picture class="showcard__picture">
+                <source srcset="./img/books/typo/typo@2x.webp 2x">
+                <img src="./img/books/typo/typo.webp" alt="книга типографика" class="showcard__picture">
+              </picture>
+              <div class="showcard__dscr">
+                <div class="showcard__data">
+                  <h4 class="heading4 showcard__name">
+                    Типографика
+                  </h4>
+                  <p class="showcard__author">
+                    Рудер, Эмиль
+                  </p>
+                </div>
+                <p class="showcard__price">
+                  2 450 руб
+                </p>
+              </div>
+              <button class="btn showcard__btn">
+                Заказать
+              </button>
+            </li>
+            <li class="swiper-slide showcase__item showcard">
+              <picture class="showcard__picture">
+                <source srcset="./img/books/letters/letters@2x.webp 2x">
+                <img src="./img/books/letters/letters.webp" alt="книга про буквы" class="showcard__picture">
+              </picture>
+              <div class="showcard__dscr">
+                <div class="showcard__data">
+                  <h4 class="heading4 showcard__name">
+                    Книга про буквы
+                  </h4>
+                  <p class="showcard__author">
+                    Гордон, Юрий
+                  </p>
+                </div>
+                <p class="showcard__price">
+                  2 200 руб
+                </p>
+              </div>
+              <button class="btn showcard__btn">
+                Заказать
+              </button>
+            </li>
+            <li class="swiper-slide showcase__item showcard">
+              <picture class="showcard__picture">
+                <source srcset="./img/books/ilyin/ilyin@2x.webp 2x">
+                <img src="./img/books/ilyin/ilyin.webp" alt="книга николай ильин" class="showcard__picture">
+              </picture>
+              <div class="showcard__dscr">
+                <div class="showcard__data">
+                  <h4 class="heading4 showcard__name">
+                    Николай Ильин
+                  </h4>
+                  <p class="showcard__author">
+                    Кричевский, Владимир
+                  </p>
+                </div>
+                <p class="showcard__price">
+                  1 100 руб
+                </p>
+              </div>
+              <button class="btn showcard__btn">
+                Заказать
+              </button>
+            </li>
+            <li class="swiper-slide showcase__item showcard">
+              <picture class="showcard__picture">
+                <source srcset="./img/books/modules/modules@2x.webp 2x">
+                <img src="./img/books/modules/modules.webp" alt="книга модульные системы в графическом дизайне" class="showcard__picture">
+              </picture>
+              <div class="showcard__dscr">
+                <div class="showcard__data">
+                  <h4 class="heading4 showcard__name">
+                    Модульные системы в графическом дизайне
+                  </h4>
+                  <p class="showcard__author">
+                    Мюллер-Брокман, Йозеф
+                  </p>
+                </div>
+                <p class="showcard__price">
+                  1 450 руб
+                </p>
+              </div>
+              <button class="btn showcard__btn">
+                Заказать
+              </button>
+            </li>
+            <li class="swiper-slide showcase__item showcard">
+              <picture class="showcard__picture">
+                <source srcset="./img/books/evolution/evolution@2x.webp 2x">
+                <img src="./img/books/evolution/evolution.webp" alt="книга эволюция графических стилей" class="showcard__picture">
+              </picture>
+              <div class="showcard__dscr">
+                <div class="showcard__data">
+                  <h4 class="heading4 showcard__name">
+                    Эволюция графических стилей
+                  </h4>
+                  <p class="showcard__author">
+                    Хеллер, Чваст
+                  </p>
+                </div>
+                <p class="showcard__price">
+                  3 200 руб
+                </p>
+              </div>
+              <button class="btn showcard__btn">
+                Заказать
+              </button>
+            </li>
+            <li class="swiper-slide showcase__item showcard">
+              <picture class="showcard__picture">
+                <source srcset="./img/books/artandvisual/artandvisual@2x.webp 2x">
+                <img src="./img/books/artandvisual/artandvisual.webp" alt="книга искусство и визуальное восприятие" class="showcard__picture">
+              </picture>
+              <div class="showcard__dscr">
+                <div class="showcard__data">
+                  <h4 class="heading4 showcard__name">
+                    Искусство и визуальное восприятие
+                  </h4>
+                  <p class="showcard__author">
+                    Арнхейм, Рудольф
+                  </p>
+                </div>
+                <p class="showcard__price">
+                  2 200 руб
+                </p>
+              </div>
+              <button class="btn showcard__btn">
+                Заказать
+              </button>
+            </li>
+          </ul>
+        </div>
+        <ul class="list showcase__list showcase__list_mobile">
+          <li class="showcase__item showcase__item_mobile showcard">
+            <picture class="showcard__picture">
+              <source srcset="./img/books/colorart/colorart320.webp" media="(max-width: 475px)">
+              <img src="./img/books/colorart/colorart.webp" alt="книга искусство цвета" class="showcard__picture">
+            </picture>
+            <div class="showcard__dscr">
+              <div class="showcard__data">
+                <h4 class="heading4 showcard__name">
+                  Искусство цвета
+                </h4>
+                <p class="showcard__author">
+                  Иттен, Иоханнес
+                </p>
+              </div>
+              <p class="showcard__price">
+                620 руб
+              </p>
+            </div>
+            <button tabindex="-1" class="btn showcard__btn">
+              Заказать
+            </button>
+          </li>
+          <li class="showcase__item showcase__item_mobile showcard">
+            <picture class="showcard__picture">
+              <source srcset="./img/books/typo/typo320.webp" media="(max-width: 475px)">
+              <img src="./img/books/typo/typo.webp" alt="книга типографика" class="showcard__picture">
+            </picture>
+            <div class="showcard__dscr">
+              <div class="showcard__data">
+                <h4 class="heading4 showcard__name">
+                  Типографика
+                </h4>
+                <p class="showcard__author">
+                  Рудер, Эмиль
+                </p>
+              </div>
+              <p class="showcard__price">
+                2 450 руб
+              </p>
+            </div>
+            <button tabindex="-1" class="btn showcard__btn">
+              Заказать
+            </button>
+          </li>
+          <li class="showcase__item showcase__item_mobile showcard">
+            <picture class="showcard__picture">
+              <source srcset="./img/books/letters/letters320.webp" media="(max-width: 475px)">
+              <img src="./img/books/letters/letters.webp" alt="книга про буквы" class="showcard__picture">
+            </picture>
+            <div class="showcard__dscr">
+              <div class="showcard__data">
+                <h4 class="heading4 showcard__name">
+                  Книга про буквы
+                </h4>
+                <p class="showcard__author">
+                  Гордон, Юрий
+                </p>
+              </div>
+              <p class="showcard__price">
+                2 200 руб
+              </p>
+            </div>
+            <button tabindex="-1" class="btn showcard__btn">
+              Заказать
+            </button>
+          </li>
+          <li class="showcase__item showcase__item_mobile showcard">
+            <picture class="showcard__picture">
+              <source srcset="./img/books/ilyin/ilyin320.webp" media="(max-width: 475px)">
+              <img src="./img/books/ilyin/ilyin.webp" alt="книга николай ильин" class="showcard__picture">
+            </picture>
+            <div class="showcard__dscr">
+              <div class="showcard__data">
+                <h4 class="heading4 showcard__name">
+                  Николай Ильин
+                </h4>
+                <p class="showcard__author">
+                  Кричевский, Владимир
+                </p>
+              </div>
+              <p class="showcard__price">
+                1 100 руб
+              </p>
+            </div>
+            <button tabindex="-1" class="btn showcard__btn">
+              Заказать
+            </button>
+          </li>
+          <li class="showcase__item showcase__item_mobile showcard">
+            <picture class="showcard__picture">
+              <source srcset="./img/books/modules/modules320.webp" media="(max-width: 475px)">
+              <img src="./img/books/modules/modules.webp" alt="книга модульные системы в графическом дизайне" class="showcard__picture">
+            </picture>
+            <div class="showcard__dscr">
+              <div class="showcard__data">
+                <h4 class="heading4 showcard__name">
+                  Модульные системы в графическом дизайне
+                </h4>
+                <p class="showcard__author">
+                  Мюллер-Брокман, Йозеф
+                </p>
+              </div>
+              <p class="showcard__price">
+                1 450 руб
+              </p>
+            </div>
+            <button tabindex="-1" class="btn showcard__btn">
+              Заказать
+            </button>
+          </li>
+          <li class="showcase__item showcase__item_mobile showcard">
+            <picture class="showcard__picture">
+              <source srcset="./img/books/evolution/evolution320.webp" media="(max-width: 475px)">
+              <img src="./img/books/evolution/evolution.webp" alt="книга эволюция графических стилей" class="showcard__picture">
+            </picture>
+            <div class="showcard__dscr">
+              <div class="showcard__data">
+                <h4 class="heading4 showcard__name">
+                  Эволюция графических стилей
+                </h4>
+                <p class="showcard__author">
+                  Хеллер, Чваст
+                </p>
+              </div>
+              <p class="showcard__price">
+                3 200 руб
+              </p>
+            </div>
+            <button tabindex="-1" class="btn showcard__btn">
+              Заказать
+            </button>
+          </li>
+          <li class="showcase__item showcase__item_mobile showcard">
+            <picture class="showcard__picture">
+              <source srcset="./img/books/artandvisual/artandvisual320.webp" media="(max-width: 475px)">
+              <img src="./img/books/artandvisual/artandvisual.webp" alt="книга искусство и визуальное восприятие" class="showcard__picture">
+            </picture>
+            <div class="showcard__dscr">
+              <div class="showcard__data">
+                <h4 class="heading4 showcard__name">
+                  Искусство и визуальное восприятие
+                </h4>
+                <p class="showcard__author">
+                  Арнхейм, Рудольф
+                </p>
+              </div>
+              <p class="showcard__price">
+                2 200 руб
+              </p>
+            </div>
+            <button tabindex="-1" class="btn showcard__btn">
+              Заказать
+            </button>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <section id="projects" class="projects">
+      <div class="container projects__container">
+        <h2 class="heading2 projects__heading">
+          Проекты
+        </h2>
+        <p class="paragraph projects__description descript">
+          Предварительные выводы: постоянное информационно-пропагандистское обеспечение нашей деятельности однозначно фиксирует необходимость своевременного выполнения сверхзадачи. А ещё независимые государства смешаны с не уникальными данными до степени совершенной неузнаваемости, из-за чего возрастает их статус бесполезности. Прежде всего, постоянное информационно-пропагандистское <span tabindex="0" id="tt1" class="descript__tt"></span> обеспечение нашей деятельности однозначно фиксирует необходимость экономической целесообразности принимаемых решений. И нет сомнений, что действия представителей оппозиции могут быть рассмотрены <span tabindex="0" id="tt2" class="descript__tt"></span> исключительно в разрезе маркетинговых и финансовых <span tabindex="0" id="tt3" class="descript__tt"></span> предпосылок. Банальные, но неопровержимые выводы, а также представители современных социальных резервов призывают нас к новым свершениям, которые, в свою очередь, должны быть смешаны с не уникальными данными до степени совершенной неузнаваемости. Подробнее:
+          <a href="#" class="links descript__link">
+            blanchard-art.ru/projects/about
+          </a>
+        </p>
+        <div class="projects__partners partners">
+          <!-- If we need navigation buttons -->
+          <div class="swiper-button-prev partners__prev"></div>
+          <div class="swiper-button-next partners__next"></div>
+          <h3 class="heading3 partners__heading">
+            Партнёры проектов:
+          </h3>
+          <div class="swiper-container partners__swiper">
+            <ul class="list swiper-wrapper partners__list">
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://freelandsfoundation.co.uk/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/freelands.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://www.ica.art/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/institute.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://www.workhousearts.org/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/workhouse.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://www.1849wine.com/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/1849.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://www.hiscox.com/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/hiscox.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://camdenartcentre.org/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/camden.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="http://www.stassen.be/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/stassen.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://www.wattsgallery.org.uk/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/watts.png" alt="" class="partcard__img">
+                </a>
+              </li>
+              <li class="swiper-slide partners__item partcard">
+                <a href="https://www.esad-valenciennes.fr/" class="links partcard__link" target="_blank">
+                  <img src="./img/projects/esad.png" alt="" class="partcard__img">
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="contacts" class="contacts">
+      <div class="container contacts__container">
+        <h2 class="heading2 contacts__heading">
+          Контакты
+        </h2>
+      </div>
+      <div class="contacts__content content">
+        <div class="content__info info">
+          <address class="info__addr addr">
+            <p class="addr__place">
+              Шоурум №4
+            </p>
+            <p class="paragraph addr__street">
+              Леонтьевский переулок, дом 5, строение&nbsp;1
+            </p>
+          </address>
+          <div id="map1" class="content__map map content__map_mobile"></div>
+          <form action="send.php" autocomplete="on" method="POST" class="info__callback callback">
+            <h3 class="heading3 callback__heading">
+              Заказать обратный звонок
+            </h3>
+            <input type="text" name="name" id="name" required placeholder="Имя*" data-validate-field="name" class="inpt callback__inpt">
+            <input type="tel" name="phone" id="tel" required placeholder="Телефон*"  data-validate-field="tel"  class="inpt callback__inpt">
+            <button type="submit" class="btn callback__btn">
+              Заказать
+            </button>
+          </form>
+          <div class="info__messengers messengers">
+            <h3 class="heading3 messengers__heading">
+              Связаться в один клик
+            </h3>
+            <a href="https://wa.me/" target="_blank" class="links messengers__link">
+              <img src="./img/contacts/whatsapp.svg" alt="написать в вотсап" class="messengers__img">
+            </a>
+            <a href="https://telegram.im/@" target="_blank" class="links messengers__link">
+              <img src="./img/contacts/telegram.svg" alt="написать в телеграм" class="messengers__img">
+            </a>
+          </div>
+        </div>
+        <div id="map2" class="content__map map content__map_desktop"></div>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer__container">
+        <a href="" class="links footer__home">
+          <img src="./img/footer/logo.png" alt="ссылка на домашнюю страницу" class="footer__img">
+        </a>
+        <ul class="list footer__socials socials">
+          <li class="socials__item">
+            <a href="https://vk.com/" target="_blank" class="links socilas__links">
+              <img src="./img/footer/vk.svg" alt="ссылка на нашу страницу вконтакте" class="socials__img">
+            </a>
+          </li>
+          <li class="socials__item">
+            <a href="https://www.instagram.com/" target="_blank" class="links socilas__links">
+              <img src="./img/footer/instagram.svg" alt="ссылка на нашу страницу в инстаграм" class="socials__img">
+            </a>
+          </li>
+          <li class="socials__item">
+            <a href="https://www.facebook.com/" target="_blank" class="links socilas__links">
+              <img src="./img/footer/fb.svg" alt="ссылка на нашу страницу в фэйсбук" class="socials__img">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
